@@ -75,9 +75,9 @@ export default function Page() {
 
     async function fetchSensor() {
       try {
-        const res = await fetch(
-          `/api/sensor?deviceId=${encodeURIComponent(DEFAULT_DEVICE_ID)}`
-        );
+        const res = await fetch("https://www.erlanggabriawa.my.id/data_sensor.json", {
+          cache: "no-store",
+        });
         if (!res.ok) throw new Error("Gagal mengambil data sensor");
         const data: { temp?: number; hum?: number; gas?: number } = await res.json();
 
